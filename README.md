@@ -19,13 +19,21 @@ mendeteksi penyakit jantung
 # Data Understanding
 Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle.
 Berikut adalah penjelasan dari variable/ kolom pada dataset:
+
 Age : Usia dalam Tahun
+
 Gender : Data normalisasi jenis kelamin dengan hasil 1 = Laki-laki, 0 = Perempuan
+
 Haert Rate : Detak Jantung
+
 Systolic blood pressure : Tekanan Darah
+
 Blood sugar : Gula Darah
+
 CK-MB : Tes untuk mencari jenis enzim tertentu dalam darah untuk mendiagnosis atau menyingkirkan kemungkinan serangan jantung
+
 Troponin : Jenis Protein yang ditemukan di otot jantung
+
 Result : Hasil diagnosis, 0 = negatif, 1 = positif
 
 
