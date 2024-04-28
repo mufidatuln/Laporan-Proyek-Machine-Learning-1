@@ -29,21 +29,21 @@ XGBoost (Extreme Gradient Boosting) adalah sebuah algoritma machine learning yan
 Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Berikut dataset yang saya gunakan [Heart Attack Dataset](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/heart-attack-dataset) yang memiliki dimensi 1319 x 9 kolom diantaranya :
 Berikut adalah penjelasan dari variable/ kolom pada dataset:
 
-Age : Usia dalam Tahun
+* Age : Usia dalam Tahun
 
-Gender : Data normalisasi jenis kelamin dengan hasil 1 = Laki-laki, 0 = Perempuan
+* Gender : Data normalisasi jenis kelamin dengan hasil 1 = Laki-laki, 0 = Perempuan
 
-Haert Rate : Detak Jantung
+* Haert Rate : Detak Jantung
 
-Systolic blood pressure : Tekanan Darah
+* Systolic blood pressure : Tekanan Darah
 
-Blood sugar : Gula Darah
+* Blood sugar : Gula Darah
 
-CK-MB : Tes untuk mencari jenis enzim tertentu dalam darah untuk mendiagnosis atau menyingkirkan kemungkinan serangan jantung
+* CK-MB : Tes untuk mencari jenis enzim tertentu dalam darah untuk mendiagnosis atau menyingkirkan kemungkinan serangan jantung
 
-Troponin : Jenis Protein yang ditemukan di otot jantung
+* Troponin : Jenis Protein yang ditemukan di otot jantung
 
-Result : Hasil diagnosis, 0 = negatif, 1 = positif
+* Result : Hasil diagnosis, 0 = negatif, 1 = positif
 
 # Data Visualization
 
@@ -66,10 +66,13 @@ Dari grafik tersebut kita dapat melihat dominan penderita penyakit jantung berje
 
 Segmentasi umur yang dilakukan adalah sebagai berikut :
 
-0-12 = Anak-Anak
-13-21 = Remaja
-22-60 = Dewasa
-60-100 = Tua
+* 0-12 = Anak-Anak
+  
+* 13-21 = Remaja
+  
+* 22-60 = Dewasa
+  
+* 60-100 = Tua
 
 Grafik tersebut menjelaskan bahwa dominan penderita penyakit jantung adalah pasien dengan usia 22 sampai 80 ke atas.
 
