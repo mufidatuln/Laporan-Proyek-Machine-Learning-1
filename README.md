@@ -7,11 +7,13 @@ Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit j
 
 ## Problem Statemen
 1. Dari berbeagai parameter yang ada. Variabel manakah yang sangat mempengaruhi seseorang mengalami penyakit jantung?
+   
 2. Dari 3 Model Machine Learning yaitu Logistic Regression, Random Forest, XGBClassifier manakah yang memiliki akurasi paling tinggi
    
 ## Goal
 1. Mengetahui variabel karakteristik apa yang paling berpengaruh terhadap diagnosis penyakit jantung.
-2, Membuat model machine learning terbaik untuk memprediksi penyakit jantung.
+   
+2. Membuat model machine learning terbaik untuk memprediksi penyakit jantung.
 
 ## Solution Statemen
 Pada kasus kali ini saya menggunakan 3 model machine learning yaitu:
@@ -43,7 +45,7 @@ Troponin : Jenis Protein yang ditemukan di otot jantung
 
 Result : Hasil diagnosis, 0 = negatif, 1 = positif
 
-#Data Visualization
+# Data Visualization
 
 # Referensi
 [1] American Journal of Sociology, “Penyakit Jantung,” J. Chem. Inf. Model., vol. 53, no. 9, pp. 1689–1699, 2019.
