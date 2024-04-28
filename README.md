@@ -17,7 +17,7 @@ Tujuan proyek ini adalah prediksi penyakit jantung agar dapat melakuakn preventi
 mendeteksi penyakit jantung
 
 # Data Understanding
-Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle.
+Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Link(https://www.kaggle.com/datasets/sukhmandeepsinghbrar/heart-attack-dataset)
 Berikut adalah penjelasan dari variable/ kolom pada dataset:
 
 Age : Usia dalam Tahun
