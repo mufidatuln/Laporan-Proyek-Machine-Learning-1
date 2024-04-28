@@ -1,6 +1,6 @@
 # Laporan Proyek Machine Learning - Mufidatul Ngazizah
 ## Domain Proyek
-Domain proyek yang digunakan adalah dalam bidang kesehatan, menurut WHO (World Health Organization) penyakit jantung merupakan penyebab kematian beberapa negara termasuk Indonesia, Inggris Raya, Autralia, Kanada, Amerika dan beberapa negara lain[1]. Penyakit jantung menyebabakn kematian karena tekanan darah, stres dan terlalu banyak bekerja, gula darah, dan banyak alasan lain. Dengan berkembangnya teknologi, banyak hal yan dapat dilakukan untuk meningkatkan kemudahan masyarakat untuk mendeteksi penyakit dengan bantaun Machine Learning yang menggunakan informasi yang relevan untuk prediksi penyalit jantung.nSetiap catatan dalam dataset ini berhubungan dengan masing-masing pasien, dan hasil diagnostik juga disediakan. Dataset ini dapat bermanfaat untuk penelitian dalam kesehatan jantung, pemodelan prediktif kondisi jantung, serta pengembangan alat diagnostik dan intervensi yang bertujuan untuk meningkatkan hasil kesehatan jantung.
+Domain proyek yang digunakan adalah dalam bidang kesehatan, menurut WHO (World Health Organization) penyakit jantung merupakan penyebab kematian beberapa negara termasuk Indonesia, Inggris Raya, Autralia, Kanada, Amerika dan beberapa negara lain [1]. Penyakit jantung menyebabakn kematian karena tekanan darah, stres dan terlalu banyak bekerja, gula darah, dan banyak alasan lain. Dengan berkembangnya teknologi, banyak hal yan dapat dilakukan untuk meningkatkan kemudahan masyarakat untuk mendeteksi penyakit dengan bantaun Machine Learning yang menggunakan informasi yang relevan untuk prediksi penyalit jantung.nSetiap catatan dalam dataset ini berhubungan dengan masing-masing pasien, dan hasil diagnostik juga disediakan. Dataset ini dapat bermanfaat untuk penelitian dalam kesehatan jantung, pemodelan prediktif kondisi jantung, serta pengembangan alat diagnostik dan intervensi yang bertujuan untuk meningkatkan hasil kesehatan jantung.
 
 # Bussines Understanding
 Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit jantung. Mereka memiliki data rekam medis terkait pasien yang berresiko dan terdiagnosis memiliki penyakit jantung. Beberapa parameter yang akan digunakan untuk memaksimalkan pembuatan alat pendeteksi penyakit jantung.
@@ -63,6 +63,7 @@ Dari grafik tersebut kita dapat melihat dominan penderita penyakit jantung berje
 
 ## Jumlah Pasien Positif Memiliki Penyakit Jantung Berdasarkan Segmentasi Umur
 ![Segemntasi Umur](https://github.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/blob/main/jumlah%20positif%20berdasarkan%20usia.PNG)
+
 Segmentasi umur yang dilakukan adalah sebagai berikut :
 
 0-12 = Anak-Anak
@@ -81,10 +82,12 @@ Dari 9 feature yang memiliki korelasi cukup tinggi daripada yang lain hanya 3 fe
 
 ## Korelasi Usia dengan Gula Darah
 ![Usia vs Gula Darah](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/usia%20gula%20darah.PNG)
+
 Terdapat korelasi positif yang lemah antara usia dan gula darah. Ini berarti bahwa dengan bertambahnya usia, gula darah juga cenderung meningkat. Namun, korelasinya lemah, sehingga ada banyak variabilitas dalam data.
 
 ## Korelasi CK-MB denagn Troponin
 ![CK-MB vs Gula Darah](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/CK-MB%20dan%20Tropin.PNG)
+
 Terdapat korelasi positif yang lemah antara kadar CK-MB dan kadar troponin. Ini berarti bahwa dengan meningkatnya kadar CK-MB, kadar troponin juga cenderung meningkat, tetapi korelasinya lemah.
 
 # Data Preposessing
@@ -104,10 +107,12 @@ Logistic Regression adalah salah satu algoritma yang digunakan untuk pemodelan r
 
 ## Random Forest
 Random Forest adalah algoritma yang digunakan untuk tugas klasifikasi dan regresi dalam machine learning. Ini termasuk dalam kategori algoritma ensemble, yang berarti ia menggabungkan prediksi dari beberapa model (disebut sebagai pohon keputusan dalam konteks Random Forest) untuk menghasilkan prediksi yang lebih akurat dan stabil. Keuntungan utama dari Random Forest adalah kemampuannya untuk mengatasi overfitting dan menangani dataset yang memiliki banyak fitur dengan baik. Ini juga cenderung memberikan kinerja yang baik secara default tanpa perlu penyetelan parameter yang rumit.
+
 ![Random Forest](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/Random%20Forest.PNG)
 
 ## XGBClassifier
 XGBClassifier adalah singkatan dari Extreme Gradient Boosting Classifier, yang merupakan implementasi dari algoritma gradient boosting yang sangat efisien dan efektif. XGBoost merupakan salah satu algoritma yang sangat populer dalam machine learning, terutama dalam kompetisi data dan proyek-proyek industri. Gradient boosting adalah proses iteratif di mana model ditambahkan satu per satu ke dalam rangkaian model yang ada. Setiap model ditambahkan dengan mengurangi gradien dari fungsi kerugian (loss function) terhadap prediksi sebelumnya. Dengan cara ini, setiap model berfokus pada bagian data yang tidak diprediksi dengan baik oleh model sebelumnya.
+
 ![XGBClassifier](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/XGBClasifier.PNG)
 
 # Evaluasi
@@ -132,7 +137,7 @@ F1-Score adalah rata-rata harmonis dari precision dan recall. F1-Score memberika
 ## AUC-ROC
 AUC-ROC (Area Under the Receiver Operating Characteristic Curve) mengukur kinerja model untuk berbagai nilai threshold dalam membedakan antara kelas positif dan negatif. ROC Curve adalah grafik yang menunjukkan trade-off antara sensitivitas (recall) dan 1-specificity. Nilai AUC-ROC berkisar antara 0 hingga 1, di mana nilai yang lebih tinggi menunjukkan kinerja model yang lebih baik.
 
-Pada kasus ini model dengan akurasi terbaik diperoleh dari XGBClassifier dengan matrik evaluasi yaitu AUC_ROC
+Pada kasus ini model dengan akurasi terbaik diperoleh dari **XGBClassifier** dengan matrik evaluasi yaitu **AUC_ROC**
 
 # Referensi
 [1] American Journal of Sociology, “Penyakit Jantung,” J. Chem. Inf. Model., vol. 53, no. 9, pp. 1689–1699, 2019.
