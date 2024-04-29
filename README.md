@@ -10,7 +10,7 @@ Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit j
 ## Problem Statemen
 1. Bagaimana mengembangkan model prediksi penyakit jantung yang akurat dan dapat diandalkan untuk membantu dokter dalam mendiagnosis penyakit jantung secara dini?
    
-2. Dari 3 Model Machine Learning yaitu Logistic Regression, Random Forest, XGBClassifier manakah yang memiliki akurasi paling tinggi
+2. Dari tiga Model Machine Learning, yaitu Logistic Regression, Random Forest, XGBClassifier manakah yang memiliki akurasi paling tinggi
    
 ## Goal
 1. Mengetahui variabel karakteristik apa yang paling berpengaruh terhadap diagnosis penyakit jantung.
@@ -18,10 +18,10 @@ Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit j
 2. Menentukan model machine learning yang menghasilkan akurasi prediksi tertinggi dengan nilai akurasi lebih dari 95%
 
 ## Solution Statemen
-Pada kasus ini diterapkan 3 model machine learning yaitu :
+Pada kasus ini diterapkan 3 model machine learning, yaitu:
 
 1. Logistic Regression
-Linear Regression adalah suatu cara permodelan masalah keterhubungan antara suatu variabel independen terhadap variabel dependen. Logistic Regression juga sebuah algoritma klasifikasi untuk mencari hubungan antara fitur (input) diskrit/kontinu dengan probabilitas hasil output diskrit tertentu.
+Linear Regression adalah suatu cara permodelan masalah keterhubungan antara suatu variabel independen terhadap variabel dependen. Logistic Regression juga sebuah algoritma klasifikasi untuk mencari hubungan antara fitur (input) diskrit/kontinu dengan probabilitas hasil output diskret tertentu.
 
 3. Random Forest
 Random Forest adalah algoritma dalam machine learning yang digunakan untuk pengklasifikasian data set dalam jumlah besar. Karena fungsinya bisa digunakan untuk banyak dimensi dengan berbagai skala dan performa yang tinggi.
@@ -31,7 +31,7 @@ XGBoost (Extreme Gradient Boosting) adalah sebuah algoritma machine learning yan
 
 
 # Data Understanding
-Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Berikut dataset yang saya gunakan [Heart Attack Dataset](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/heart-attack-dataset) yang memiliki dimensi 1319 x 9 kolom diantaranya:
+Dataset yang digunakan diperoleh dari platform penyedia dataset, yaitu Kaggle. Berikut dataset yang saya gunakan [Heart Attack Dataset](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/heart-attack-dataset) yang memiliki dimensi 1319 x 9 kolom diantaranya:
 
 * Age : Usia dalam tahun
 
