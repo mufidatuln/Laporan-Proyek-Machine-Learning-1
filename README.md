@@ -18,7 +18,7 @@ Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit j
 2. Menentukan model machine learning yang menghasilkan akurasi prediksi tertinggi dengan nilai akurasi lebih dari 95%
 
 ## Solution Statemen
-Pada kasus kali ini saya menggunakan 3 model machine learning yaitu:
+Pada kasus ini diterapkan 3 model machine learning yaitu :
 
 1. Logistic Regression
 Linear Regression adalah suatu cara permodelan masalah keterhubungan antara suatu variabel independen terhadap variabel dependen. Logistic Regression juga sebuah algoritma klasifikasi untuk mencari hubungan antara fitur (input) diskrit/kontinu dengan probabilitas hasil output diskrit tertentu.
@@ -60,7 +60,7 @@ Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Be
 
 3. Hanya fitur Gula darah yang memiliki distribusi relatif normal.
 
-## Perserbaran Jumlah Diagnosis Berdasarkan Gender
+## Perserbaran Jumlah Diagnosis Positif Berdasarkan Gender
 ![Result Vs Gender](https://github.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/blob/main/result%20vs%20gender.PNG)
 
 Dari grafik tersebut kita dapat melihat dominan penderita penyakit jantung berjenis kelamin wanita. 
