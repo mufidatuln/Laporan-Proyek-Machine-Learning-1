@@ -52,7 +52,7 @@ Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Be
 # Data Visualization
 
 ## Distribusi Data
-![Distribusi Data Setiap Fitur](https://github.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/blob/main/distribusi_data.PNG)
+![Gambar 1. Distribusi Data](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/img/Gambar%201.%20Distribusi%20Data.PNG)
 
 1. Age: Data distribusi pada fitur usia memiliki nilai miring ke kanan, artinya nilai pada fitur usia lebih banyak dalam kelompok usia yang lebih tua.
    
@@ -61,12 +61,12 @@ Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Be
 3. Hanya fitur Gula darah yang memiliki distribusi relatif normal.
 
 ## Perserbaran Jumlah Diagnosis Positif Berdasarkan Gender
-![Result Vs Gender](https://github.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/blob/main/result%20vs%20gender.PNG)
+![Gambar 2. Perserbaran Jumlah Diagnosis Positif Berdasarkan Gender](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/img/Gambar%202.%20Perserbaran%20Jumlah%20Diagnosis%20Positif%20Berdasarkan%20Gender.PNG)
 
 Dari grafik tersebut kita dapat melihat dominan penderita penyakit jantung berjenis kelamin wanita. 
 
 ## Jumlah Pasien Positif Memiliki Penyakit Jantung Berdasarkan Segmentasi Umur
-![Segemntasi Umur](https://github.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/blob/main/jumlah%20positif%20berdasarkan%20usia.PNG)
+![Gambar 3. Jumlah Pasien Positif Memiliki Penyakit Jantung Berdasarkan Segmentasi Umur](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/img/Gambar%203.%20Jumlah%20Pasien%20Positif%20Memiliki%20Penyakit%20Jantung%20Berdasarkan%20Segmentasi%20Umur.PNG)
 
 Segmentasi umur yang dilakukan adalah sebagai berikut :
 
@@ -81,19 +81,19 @@ Segmentasi umur yang dilakukan adalah sebagai berikut :
 Grafik tersebut menjelaskan bahwa dominan penderita penyakit jantung adalah pasien dengan usia 22 sampai 80 ke atas.
 
 ## Korelasi Antar Semua Feature
-![Heat Map](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/korelasi%20all.PNG)
+![Gambar 4. Korelasi Antar Semua Feature](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/img/Gambar%204.%20Korelasi%20Antar%20Semua%20Feature.PNG)
 
 Dari 9 feature yang memiliki korelasi cukup tinggi daripada yang lain hanya 3 feature yaitu : Age, Troponin, dan CK-MB.
 
-![3 Fitur](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/korelasi%203.PNG)
+![Gambar 5](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/img/Gambar%205.%20Highlight%20Tiga%20Korelasi%20Tertinggi.PNG)
 
 ## Korelasi Usia dengan Gula Darah
-![Usia vs Gula Darah](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/usia%20gula%20darah.PNG)
+![Gambar 6. Korelasi Usia dengan Gula Darah](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/img/Gambar%206.%20Korelasi%20Usia%20dengan%20Gula%20Darah.PNG)
 
 Terdapat korelasi positif yang lemah antara usia dan gula darah. Ini berarti bahwa dengan bertambahnya usia, gula darah juga cenderung meningkat. Namun, korelasinya lemah, sehingga ada banyak variabilitas dalam data.
 
-## Korelasi CK-MB denagn Troponin
-![CK-MB vs Gula Darah](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/CK-MB%20dan%20Tropin.PNG)
+## Korelasi CK-MB dengan Troponin
+![Gambar 7. Korelasi CK-MB dengan Troponin](https://github.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/blob/main/img/Gambar%207.%20Korelasi%20CK-MB%20denagn%20Troponin.PNG)
 
 Terdapat korelasi positif yang lemah antara kadar CK-MB dan kadar troponin. Ini berarti bahwa dengan meningkatnya kadar CK-MB, kadar troponin juga cenderung meningkat, tetapi korelasinya lemah.
 
