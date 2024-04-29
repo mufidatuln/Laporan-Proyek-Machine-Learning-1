@@ -145,6 +145,7 @@ XGBClassifier adalah singkatan dari Extreme Gradient Boosting Classifier, yang m
 
 ![XGBClassifier](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/XGBClasifier.PNG)
 
+
 # Evaluasi
 Setelah pelatihan selesai, model dievaluasi menggunakan set uji yang terpisah. Matrik evaluasi yang digunakan pada proyek adalah sebagai berikut :
 
@@ -160,13 +161,14 @@ Presisi mengukur proporsi dari prediksi positif yang benar dari semua prediksi p
 
 ## Recall (Recall atau Sensitivitas):
 Recall mengukur proporsi dari data yang relevan yang berhasil diidentifikasi oleh model. Dalam konteks ini, recall menunjukkan seberapa baik model dalam mengidentifikasi semua kasus positif yang sebenarnya ada. Nilai recall yang tinggi menunjukkan bahwa model memiliki kemampuan untuk mengidentifikasi sebagian besar kasus positif yang sebenarnya ada.
+
 ## F1-Score
 F1-Score adalah rata-rata harmonis dari precision dan recall. F1-Score memberikan keseimbangan antara precision dan recall. F1-Score berguna ketika kelas target tidak seimbang dan kita ingin mendapatkan keseluruhan performa model yang seimbang antara precision dan recall.
 
 ## AUC-ROC
 AUC-ROC (Area Under the Receiver Operating Characteristic Curve) mengukur kinerja model untuk berbagai nilai threshold dalam membedakan antara kelas positif dan negatif. ROC Curve adalah grafik yang menunjukkan trade-off antara sensitivitas (recall) dan 1-specificity. Nilai AUC-ROC berkisar antara 0 hingga 1, di mana nilai yang lebih tinggi menunjukkan kinerja model yang lebih baik.
 
-Pada kasus ini model dengan akurasi terbaik diperoleh dari **XGBClassifier** dengan matrik evaluasi yaitu **AUC_ROC**
+Kesimpulan tentang keberhasilan proyek dan kemampuan model untuk menyelesaikan masalah yang diangkat harus didasarkan pada evaluasi metrik dan konteks proyek secara keseluruhan. Pada kasus ini model dengan akurasi terbaik diperoleh dari **XGBClassifier** dengan matrik evaluasi yaitu **AUC_ROC**
 
 # Referensi
 [1] American Journal of Sociology, “Penyakit Jantung,” J. Chem. Inf. Model., vol. 53, no. 9, pp. 1689–1699, 2019.
