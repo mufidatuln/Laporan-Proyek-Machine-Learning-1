@@ -19,31 +19,33 @@ Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit j
 
 ## Solution Statemen
 Pada kasus kali ini saya menggunakan 3 model machine learning yaitu:
-* Logistic Regression
+
+1. Logistic Regression
 Linear Regression adalah suatu cara permodelan masalah keterhubungan antara suatu variabel independen terhadap variabel dependen. Logistic Regression juga sebuah algoritma klasifikasi untuk mencari hubungan antara fitur (input) diskrit/kontinu dengan probabilitas hasil output diskrit tertentu.
-* Random Forest
+
+3. Random Forest
 Random Forest adalah algoritma dalam machine learning yang digunakan untuk pengklasifikasian data set dalam jumlah besar. Karena fungsinya bisa digunakan untuk banyak dimensi dengan berbagai skala dan performa yang tinggi.
-* XGBClassifier
+
+4. XGBClassifier
 XGBoost (Extreme Gradient Boosting) adalah sebuah algoritma machine learning yang sangat populer dan efektif dalam analisis data, khususnya dalam tugas-tugas seperti klasifikasi, regresi, dan peringkatan.
 
 
 # Data Understanding
-Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Berikut dataset yang saya gunakan [Heart Attack Dataset](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/heart-attack-dataset) yang memiliki dimensi 1319 x 9 kolom diantaranya :
-Berikut adalah penjelasan dari variable/ kolom pada dataset:
+Dataset yang digunakan diperoleh dari platform penyedia dataset yaitu Kaggle. Berikut dataset yang saya gunakan [Heart Attack Dataset](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/heart-attack-dataset) yang memiliki dimensi 1319 x 9 kolom diantaranya:
 
-* Age : Usia dalam Tahun
+* Age : Usia dalam tahun
 
-* Gender : Data normalisasi jenis kelamin dengan hasil 1 = Laki-laki, 0 = Perempuan
+* Gender : Data normalisasi jenis kelamin dengan hasil, 1 = Laki-laki dan  0 = Perempuan
 
-* Haert Rate : Detak Jantung
+* Haert Rate : Detak jantung
 
-* Systolic blood pressure : Tekanan Darah
+* Systolic blood pressure : Tekanan darah
 
-* Blood sugar : Gula Darah
+* Blood sugar : Gula darah
 
 * CK-MB : Tes untuk mencari jenis enzim tertentu dalam darah untuk mendiagnosis atau menyingkirkan kemungkinan serangan jantung
 
-* Troponin : Jenis Protein yang ditemukan di otot jantung
+* Troponin : Jenis protein yang ditemukan di otot jantung
 
 * Result : Hasil diagnosis, 0 = negatif, 1 = positif
 
@@ -97,45 +99,67 @@ Terdapat korelasi positif yang lemah antara kadar CK-MB dan kadar troponin. Ini 
 
 # Data Preposessing
 ## Melakuakan Split dataset
-Sebelum membuat model, langkah pertama yang penting adalah membagi dataset menjadi dua bagian: data latih (train) dan data uji (test). Biasanya, kita menggunakan rasio 80% untuk data latih dan 20% untuk data uji. Hal ini penting untuk mempertahankan sebagian data yang dapat digunakan untuk menguji seberapa baik model dapat melakukan generalisasi terhadap data baru. Data latih digunakan untuk melatih model machine learning, sementara data uji digunakan untuk mengevaluasi kinerja model tersebut.
+Sebelum membuat model, langkah pertama yang penting adalah membagi dataset menjadi dua bagian: data latih (train) dan data uji (test). Biasanya, kita menggunakan rasio 80% untuk data latih dan 20% untuk data uji. Hal ini penting untuk mempertahankan sebagian data yang dapat digunakan untuk menguji seberapa baik model dapat melakukan generalisasi terhadap data baru. Data latih digunakan untuk melatih model machine learning, sementara data uji digunakan untuk mengevaluasi kinerja model tersebut. Teknik yang digunakan untuk membagi data menjadi set pelatihan dan set uji pada proyek ini adalah metode "Train-Test Split".
 
 Pembagian ini berlaku baik untuk masalah regresi maupun klasifikasi. Karena data uji berperan sebagai representasi data baru yang belum pernah dilihat oleh model, semua transformasi perlu dilakukan terlebih dahulu pada data latih. Tujuannya adalah untuk menghindari pencemaran data uji dengan informasi yang diperoleh dari data latih. Oleh karena itu, membagi dataset menjadi bagian latih dan uji adalah langkah awal yang penting sebelum melakukan transformasi apapun.
 
-## Melakukan standarisasi data
+## Melakukan Standarisasi Data
 Standardisasi adalah langkah transformasi yang umum digunakan dalam persiapan pemodelan. Ketika menangani fitur numerik, pendekatan one-hot-encoding tidak diterapkan seperti pada fitur kategorikal. Sebagai gantinya, kita menggunakan StandardScaler dari library Scikit-learn. Proses StandarScaler melibatkan pengurangan mean (nilai rata-rata) dari setiap fitur, diikuti dengan pembagian dengan standar deviasi untuk menggeser distribusi. Hasilnya adalah distribusi dengan standar deviasi 1 dan mean 0. Ini mengakibatkan sekitar 68% dari nilai berada di kisaran -1 hingga 1. Agar tidak terjadi kebocoran informasi saat menggunakan data uji, standarisasi dilakukan hanya pada data pelatihan. Kemudian, saat tahap evaluasi, standarisasi diterapkan pada data uji. Untuk lebih memperjelas konsep ini, mari kita terapkan StandardScaler pada dataset yang tersedia.
 
 # Modeling
-## Logistic Regersion
+
+Tahapan dan parameter yang digunakan dalam proses pemodelan adalah sebagai berikut :
+
+1. **Handle Missing Value**
+Pada tahap pra-pemrosesan data, langkah-langkah yang diambil untuk menangani nilai yang hilang (missing value) adalah mengidentifikasi nilai yang hilang. Jika terdapat missing value selanjutya dapat dilakukan penanganan. Namun, dalam proyek ini dataset yang tersedia tidak memiliki missing value.
+
+2. **Handling Data Duplikat**
+Data duplikat dapat mengganggu analisis dan pemodelan karena bisa menghasilkan bias dalam hasil. Oleh karena itu, langkah-langkah yang diambil untuk menangani data duplikat adalah mengidentifikasi data duplikat dari dataset. Namun, dalam proyek ini dataset yang tersedia tidak memiliki nilai duplikat.
+
+3. **Encoding Variabel Kategorikal**
+Setelah melakukan cleaning data dan Exploratory Data Analysis, selanjutnya masuk pada tahap Tahap Encoding Variabel KategorikalEncoding Variabel Kategorikal. Tahap ini melibatkan pengkodean variabel kategorikal menjadi bentuk numerik, sehingga dapat dimasukkan ke dalam model. Dalam contoh ini, metode yang digunakan adalah Label Encoding, yang mengubah nilai-nilai kategorikal menjadi bilangan bulat.
+
+5. **Pembagian Data**
+Dataset dibagi menjadi set pelatihan dan set uji. Ini dilakukan agar model dapat dilatih pada satu set data dan dievaluasi pada set data yang terpisah. Persentase data yang akan dialokasikan untuk set uji yaitu 20% dari data.
+
+6. **Normalisasi atau Standarisasi Atribut Numerik**
+Langkah ini penting karena beberapa model machine learning sensitif terhadap skala atribut numerik. Normalisasi atau standarisasi dilakukan agar semua atribut numerik memiliki skala yang serupa
+
+7. **Pemilihan Fitur**
+Tahap selanjutnya adalah pemilihan fitur, tahap ini melibatkan pemilihan fitur yang paling relevan atau penting untuk meningkatkan kinerja model. Pada proyek kali ini dataset memiliki 9 fitur yang akan digunakan dalam proses pemodelan.
+
+8. **Modeling**
+Pada proyek ini digunakan 3 algoritma machine learning yaitu :
+* Logistic Regersion
 Logistic Regression adalah salah satu algoritma yang digunakan untuk pemodelan regresi dalam konteks klasifikasi. Tujuannya adalah untuk memprediksi probabilitas bahwa suatu instance/data poin akan termasuk dalam salah satu dari dua kelas yang mungkin. Meskipun disebut "regresi", Logistic Regression sebenarnya digunakan untuk masalah klasifikasi. Keuntungan utama dari Logistic Regression adalah kemudahan interpretasi hasilnya dan efisiensi komputasinya. Namun, Logistic Regression juga memiliki beberapa kelemahan, seperti ketidakmampuan menangani hubungan non-linear antara fitur dan target, serta rentan terhadap overfitting jika terdapat fitur yang terlalu banyak atau korelasi tinggi antara fitur-fitur tersebut.
 
 ![Logistic Regeresion](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/Logistic%20Regresion.PNG)
 
-## Random Forest
+* Random Forest
 Random Forest adalah algoritma yang digunakan untuk tugas klasifikasi dan regresi dalam machine learning. Ini termasuk dalam kategori algoritma ensemble, yang berarti ia menggabungkan prediksi dari beberapa model (disebut sebagai pohon keputusan dalam konteks Random Forest) untuk menghasilkan prediksi yang lebih akurat dan stabil. Keuntungan utama dari Random Forest adalah kemampuannya untuk mengatasi overfitting dan menangani dataset yang memiliki banyak fitur dengan baik. Ini juga cenderung memberikan kinerja yang baik secara default tanpa perlu penyetelan parameter yang rumit.
 
 ![Random Forest](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/Random%20Forest.PNG)
 
-## XGBClassifier
+* XGBClassifier
 XGBClassifier adalah singkatan dari Extreme Gradient Boosting Classifier, yang merupakan implementasi dari algoritma gradient boosting yang sangat efisien dan efektif. XGBoost merupakan salah satu algoritma yang sangat populer dalam machine learning, terutama dalam kompetisi data dan proyek-proyek industri. Gradient boosting adalah proses iteratif di mana model ditambahkan satu per satu ke dalam rangkaian model yang ada. Setiap model ditambahkan dengan mengurangi gradien dari fungsi kerugian (loss function) terhadap prediksi sebelumnya. Dengan cara ini, setiap model berfokus pada bagian data yang tidak diprediksi dengan baik oleh model sebelumnya.
 
 ![XGBClassifier](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/XGBClasifier.PNG)
 
 # Evaluasi
-## Accuracy
-Accuracy (Akurasi) adalah rasio antara jumlah prediksi yang benar dengan total jumlah prediksi
+Setelah pelatihan selesai, model dievaluasi menggunakan set uji yang terpisah. Matrik evaluasi yang digunakan pada proyek adalah sebagai berikut :
 
-​Accuracy= 
-TP+TN+FP+FN/
-TP+TN
+## Accuracy
+Akurasi mengukur seberapa sering model melakukan prediksi yang benar secara keseluruhan. Dalam proyek ini, nilai akurasi sebesar ... pada model ... hal ini menunjukkan model cukup baik dalam mengklasifikasikan data ke dalam kategori yang benar. Namun hasil tersebut belum dapat dibilang tinggi karena akurasi dapat menjadi bias jika distribusi kelas tidak seimbang dalam dataset.
+
+$$ x = {TP + TN + FP +FN \over TP+TN} $$
 
 TP (True Positive) adalah jumlah prediksi yang benar positif, TN (True Negative) adalah jumlah prediksi yang benar negatif, FP (False Positive) adalah jumlah prediksi yang salah positif, dan FN (False Negative) adalah jumlah prediksi yang salah negatif. 
 ​
 ## Precision
-Precision (Presisi) adalah rasio antara jumlah prediksi yang benar positif dengan total jumlah prediksi positif. Dalam konteks klasifikasi, presisi mengukur seberapa banyak prediksi positif yang benar dari semua prediksi positif yang dilakukan.
+Presisi mengukur proporsi dari prediksi positif yang benar dari semua prediksi positif yang dilakukan oleh model. Dalam model ini nilai presisi sebesar ... pada algoritma ... menunjukkan seberapa tepat model dalam mengidentifikasi pasien yang benar-benar positif. Nilai presisi yang tinggi menunjukkan bahwa model memiliki kemampuan untuk menghindari memberikan diagnosis positif yang salah kepada pasien yang sebenarnya tidak mengidap penyakit.
 
-## Recall
-Recall (Recall atau Sensitivitas) adalah rasio antara jumlah prediksi yang benar positif dengan total jumlah kasus yang sebenarnya positif dalam data. Recall memberikan informasi tentang seberapa baik model dapat mengidentifikasi semua kasus positif yang sebenarnya.
-
+## Recall (Recall atau Sensitivitas):
+Recall mengukur proporsi dari data yang relevan yang berhasil diidentifikasi oleh model. Dalam konteks ini, recall menunjukkan seberapa baik model dalam mengidentifikasi semua kasus positif yang sebenarnya ada. Nilai recall yang tinggi menunjukkan bahwa model memiliki kemampuan untuk mengidentifikasi sebagian besar kasus positif yang sebenarnya ada.
 ## F1-Score
 F1-Score adalah rata-rata harmonis dari precision dan recall. F1-Score memberikan keseimbangan antara precision dan recall. F1-Score berguna ketika kelas target tidak seimbang dan kita ingin mendapatkan keseluruhan performa model yang seimbang antara precision dan recall.
 
