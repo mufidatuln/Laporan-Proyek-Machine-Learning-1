@@ -98,6 +98,13 @@ Terdapat korelasi positif yang lemah antara usia dan gula darah. Ini berarti bah
 Terdapat korelasi positif yang lemah antara kadar CK-MB dan kadar troponin. Ini berarti bahwa dengan meningkatnya kadar CK-MB, kadar troponin juga cenderung meningkat, tetapi korelasinya lemah.
 
 # Data Preposessing
+
+## Handle Missing Value
+Pada tahap pra-pemrosesan data, langkah-langkah yang diambil untuk menangani nilai yang hilang (missing value) adalah mengidentifikasi nilai yang hilang. Jika terdapat missing value selanjutya dapat dilakukan penanganan. Namun, dalam proyek ini dataset yang tersedia tidak memiliki missing value.
+
+## Handling Data Duplikat
+Data duplikat dapat mengganggu analisis dan pemodelan karena bisa menghasilkan bias dalam hasil. Oleh karena itu, langkah-langkah yang diambil untuk menangani data duplikat adalah mengidentifikasi data duplikat dari dataset. Namun, dalam proyek ini dataset yang tersedia tidak memiliki nilai duplikat.
+
 ## Melakuakan Split dataset
 Sebelum membuat model, langkah pertama yang penting adalah membagi dataset menjadi dua bagian: data latih (train) dan data uji (test). Biasanya, kita menggunakan rasio 80% untuk data latih dan 20% untuk data uji. Hal ini penting untuk mempertahankan sebagian data yang dapat digunakan untuk menguji seberapa baik model dapat melakukan generalisasi terhadap data baru. Data latih digunakan untuk melatih model machine learning, sementara data uji digunakan untuk mengevaluasi kinerja model tersebut. Teknik yang digunakan untuk membagi data menjadi set pelatihan dan set uji pada proyek ini adalah metode "Train-Test Split".
 
@@ -108,67 +115,55 @@ Standardisasi adalah langkah transformasi yang umum digunakan dalam persiapan pe
 
 # Modeling
 
-Tahapan dan parameter yang digunakan dalam proses pemodelan adalah sebagai berikut :
+## Pemilihan Fitur
+Sebelum memasuki tahap modeling, setiap fitur pada dataset akan di perikasa untuk melihat fitur mana yang paling relevan atau penting untuk meningkatkan kinerja model. Pada proyek kali ini dataset memiliki 9 fitur yang akan digunakan dalam proses pemodelan.
 
-1. **Handle Missing Value**
-Pada tahap pra-pemrosesan data, langkah-langkah yang diambil untuk menangani nilai yang hilang (missing value) adalah mengidentifikasi nilai yang hilang. Jika terdapat missing value selanjutya dapat dilakukan penanganan. Namun, dalam proyek ini dataset yang tersedia tidak memiliki missing value.
-
-2. **Handling Data Duplikat**
-Data duplikat dapat mengganggu analisis dan pemodelan karena bisa menghasilkan bias dalam hasil. Oleh karena itu, langkah-langkah yang diambil untuk menangani data duplikat adalah mengidentifikasi data duplikat dari dataset. Namun, dalam proyek ini dataset yang tersedia tidak memiliki nilai duplikat.
-
-3. **Encoding Variabel Kategorikal**
-Setelah melakukan cleaning data dan Exploratory Data Analysis, selanjutnya masuk pada tahap Tahap Encoding Variabel KategorikalEncoding Variabel Kategorikal. Tahap ini melibatkan pengkodean variabel kategorikal menjadi bentuk numerik, sehingga dapat dimasukkan ke dalam model. Dalam contoh ini, metode yang digunakan adalah Label Encoding, yang mengubah nilai-nilai kategorikal menjadi bilangan bulat.
-
-5. **Pembagian Data**
-Dataset dibagi menjadi set pelatihan dan set uji. Ini dilakukan agar model dapat dilatih pada satu set data dan dievaluasi pada set data yang terpisah. Persentase data yang akan dialokasikan untuk set uji yaitu 20% dari data.
-
-6. **Normalisasi atau Standarisasi Atribut Numerik**
-Langkah ini penting karena beberapa model machine learning sensitif terhadap skala atribut numerik. Normalisasi atau standarisasi dilakukan agar semua atribut numerik memiliki skala yang serupa
-
-7. **Pemilihan Fitur**
-Tahap selanjutnya adalah pemilihan fitur, tahap ini melibatkan pemilihan fitur yang paling relevan atau penting untuk meningkatkan kinerja model. Pada proyek kali ini dataset memiliki 9 fitur yang akan digunakan dalam proses pemodelan.
-
-8. **Modeling**
+## Modeling
 Pada proyek ini digunakan 3 algoritma machine learning yaitu :
-* Logistic Regersion
-Logistic Regression adalah salah satu algoritma yang digunakan untuk pemodelan regresi dalam konteks klasifikasi. Tujuannya adalah untuk memprediksi probabilitas bahwa suatu instance/data poin akan termasuk dalam salah satu dari dua kelas yang mungkin. Meskipun disebut "regresi", Logistic Regression sebenarnya digunakan untuk masalah klasifikasi. Keuntungan utama dari Logistic Regression adalah kemudahan interpretasi hasilnya dan efisiensi komputasinya. Namun, Logistic Regression juga memiliki beberapa kelemahan, seperti ketidakmampuan menangani hubungan non-linear antara fitur dan target, serta rentan terhadap overfitting jika terdapat fitur yang terlalu banyak atau korelasi tinggi antara fitur-fitur tersebut.
 
-![Logistic Regeresion](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/Logistic%20Regresion.PNG)
+|  Model |  Accuarcy | Precision | Recall  |F1-Score   | AUC-ROC  |
+|---|---|---|---|---|---|
+|  Logistic Regersion | 0.799242  |  0.819767	 | 0.865031  | 0.841791  | 0.884863  |
+Tabel 1. Logistic Regersion
+
 
 * Random Forest
-Random Forest adalah algoritma yang digunakan untuk tugas klasifikasi dan regresi dalam machine learning. Ini termasuk dalam kategori algoritma ensemble, yang berarti ia menggabungkan prediksi dari beberapa model (disebut sebagai pohon keputusan dalam konteks Random Forest) untuk menghasilkan prediksi yang lebih akurat dan stabil. Keuntungan utama dari Random Forest adalah kemampuannya untuk mengatasi overfitting dan menangani dataset yang memiliki banyak fitur dengan baik. Ini juga cenderung memberikan kinerja yang baik secara default tanpa perlu penyetelan parameter yang rumit.
-
-![Random Forest](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/Random%20Forest.PNG)
+  
+|  Model |  Accuarcy | Precision | Recall  |F1-Score   | AUC-ROC  |
+|---|---|---|---|---|---|
+|  Random Forest | 0.981061  |  0.981707	 | 0.98773  | 0.984709  | 0.989552  |
+Tabel 2. Random Forest
 
 * XGBClassifier
-XGBClassifier adalah singkatan dari Extreme Gradient Boosting Classifier, yang merupakan implementasi dari algoritma gradient boosting yang sangat efisien dan efektif. XGBoost merupakan salah satu algoritma yang sangat populer dalam machine learning, terutama dalam kompetisi data dan proyek-proyek industri. Gradient boosting adalah proses iteratif di mana model ditambahkan satu per satu ke dalam rangkaian model yang ada. Setiap model ditambahkan dengan mengurangi gradien dari fungsi kerugian (loss function) terhadap prediksi sebelumnya. Dengan cara ini, setiap model berfokus pada bagian data yang tidak diprediksi dengan baik oleh model sebelumnya.
 
-![XGBClassifier](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/XGBClasifier.PNG)
-
+|  Model |  Accuarcy | Precision | Recall  |F1-Score   | AUC-ROC  |
+|---|---|---|---|---|---|
+|  XGBClassifier | 0.981061  |  0.981707 | 0.98773  | 0.984709  | 0.992529  |
+Tabel 3. XGBClassifier
 
 # Evaluasi
-Setelah pelatihan selesai, model dievaluasi menggunakan set uji yang terpisah. Matrik evaluasi yang digunakan pada proyek adalah sebagai berikut :
+Model dievaluasi menggunakan set uji yang terpisah. Matrik evaluasi yang digunakan pada proyek adalah sebagai berikut :
 
 ## Accuracy
-Akurasi mengukur seberapa sering model melakukan prediksi yang benar secara keseluruhan. Dalam proyek ini, nilai akurasi sebesar ... pada model ... hal ini menunjukkan model cukup baik dalam mengklasifikasikan data ke dalam kategori yang benar. Namun hasil tersebut belum dapat dibilang tinggi karena akurasi dapat menjadi bias jika distribusi kelas tidak seimbang dalam dataset.
+Accuracy mengukur seberapa sering model melakukan prediksi yang benar secara keseluruhan. Dapat dilihat pada Tabel 1, nilai metrix accuracy sebesar 0.799 pada model *Logistic Regersion* hal ini menunjukkan model cukup baik dalam mengklasifikasikan data ke dalam kategori yang benar. Namun hasil tersebut belum dapat dibilang tinggi karena akurasi dapat menjadi bias jika distribusi kelas tidak seimbang dalam dataset. Pada Tabel 2 dan Tabel 3 nilai metrix akurasi sudah mencapai 0.98 yaitu pada model *Random Forest* dan *XGBClassifier*. Nilai akurasi dihitung dari rumus matematika berikut :
 
 $$ x = {TP + TN + FP +FN \over TP+TN} $$
 
-TP (True Positive) adalah jumlah prediksi yang benar positif, TN (True Negative) adalah jumlah prediksi yang benar negatif, FP (False Positive) adalah jumlah prediksi yang salah positif, dan FN (False Negative) adalah jumlah prediksi yang salah negatif. 
+TP (True Positive) adalah jumlah prediksi yang benar positif, TN *(True Negative)* adalah jumlah prediksi yang benar negatif, FP *(False Positive)* adalah jumlah prediksi yang salah positif, dan FN *(False Negative)* adalah jumlah prediksi yang salah negatif. 
 ​
 ## Precision
-Presisi mengukur proporsi dari prediksi positif yang benar dari semua prediksi positif yang dilakukan oleh model. Dalam model ini nilai presisi sebesar ... pada algoritma ... menunjukkan seberapa tepat model dalam mengidentifikasi pasien yang benar-benar positif. Nilai presisi yang tinggi menunjukkan bahwa model memiliki kemampuan untuk menghindari memberikan diagnosis positif yang salah kepada pasien yang sebenarnya tidak mengidap penyakit.
+*Precision* mengukur proporsi dari prediksi positif yang benar dari semua prediksi positif yang dilakukan oleh model. Pada Tabel 1 nilai *precision* sebesar 0.818 dengan algoritma *Logistic Regression* menunjukkan seberapa tepat model dalam mengidentifikasi pasien yang benar-benar positif. Nilai presisi yang tinggi menunjukkan bahwa model memiliki kemampuan untuk menghindari memberikan diagnosis positif yang salah kepada pasien yang sebenarnya tidak mengidap penyakit. Pada Tabel 2 dan 3 nilai *precision* sudah menyentuh 0.98 hal itu di nilai cukup tinggi atau sudah memenuhi kriteria dari tujuan atau *goal* di awal.
 
-## Recall (Recall atau Sensitivitas):
-Recall mengukur proporsi dari data yang relevan yang berhasil diidentifikasi oleh model. Dalam konteks ini, recall menunjukkan seberapa baik model dalam mengidentifikasi semua kasus positif yang sebenarnya ada. Nilai recall yang tinggi menunjukkan bahwa model memiliki kemampuan untuk mengidentifikasi sebagian besar kasus positif yang sebenarnya ada.
+## Recall:
+Recall mengukur proporsi dari data yang relevan yang berhasil diidentifikasi oleh model. Dalam konteks ini, recall menunjukkan seberapa baik model dalam mengidentifikasi semua kasus positif yang sebenarnya ada. Nilai recall yang tinggi menunjukkan bahwa model memiliki kemampuan untuk mengidentifikasi sebagian besar kasus positif yang sebenarnya ada. Pada Tabel 1 *Logistic Regression* nilai matrix recall sebesar 0.86 sedikit lebih baik dari evaluasi *precision* pada algoritama *Logistic Regression*.
 
 ## F1-Score
-F1-Score adalah rata-rata harmonis dari precision dan recall. F1-Score memberikan keseimbangan antara precision dan recall. F1-Score berguna ketika kelas target tidak seimbang dan kita ingin mendapatkan keseluruhan performa model yang seimbang antara precision dan recall.
+F1-Score adalah rata-rata harmonis dari precision dan recall. F1-Score memberikan keseimbangan antara precision dan recall. F1-Score berguna ketika kelas target tidak seimbang dan kita ingin mendapatkan keseluruhan performa model yang seimbang antara precision dan recall. Pada Tabel 1 Logistic Regression nilai F1-Score lebih rendah dari recall, namun pada Tabel 2 dan Tabel 3 dapat dilihat bahwa nilai evaluasi F1-Score mencapai 0.98.
 
 ## AUC-ROC
-AUC-ROC (Area Under the Receiver Operating Characteristic Curve) mengukur kinerja model untuk berbagai nilai threshold dalam membedakan antara kelas positif dan negatif. ROC Curve adalah grafik yang menunjukkan trade-off antara sensitivitas (recall) dan 1-specificity. Nilai AUC-ROC berkisar antara 0 hingga 1, di mana nilai yang lebih tinggi menunjukkan kinerja model yang lebih baik.
+AUC-ROC (Area Under the Receiver Operating Characteristic Curve) mengukur kinerja model untuk berbagai nilai threshold dalam membedakan antara kelas positif dan negatif. ROC Curve adalah grafik yang menunjukkan trade-off antara sensitivitas (recall) dan 1-specificity. Nilai AUC-ROC berkisar antara 0 hingga 1, di mana nilai yang lebih tinggi menunjukkan kinerja model yang lebih baik. Pada Tabel 3. XGBClassifier nilai matrix evaluasi dengan AUC-ROC mencapai 0.99 sedangkan untuk model *Logistic Regression* dan *Random Forest* hanya mencapai 0.88 dan 0.98.
 
-Kesimpulan tentang keberhasilan proyek dan kemampuan model untuk menyelesaikan masalah yang diangkat harus didasarkan pada evaluasi metrik dan konteks proyek secara keseluruhan. Pada kasus ini model dengan akurasi terbaik diperoleh dari **XGBClassifier** dengan matrik evaluasi yaitu **AUC_ROC**
+Kesimpulan dari keberhasilan proyek dan kemampuan model untuk menyelesaikan masalah didasarkan pada evaluasi metrik dan konteks proyek secara keseluruhan. Pada kasus ini model dengan akurasi terbaik diperoleh dari *XGBClassifier* dengan niali matrik evaluasi yang mecapai 0.99 pada *AUC_ROC*.
 
 # Referensi
 [1] American Journal of Sociology, “Penyakit Jantung,” J. Chem. Inf. Model., vol. 53, no. 9, pp. 1689–1699, 2019.
