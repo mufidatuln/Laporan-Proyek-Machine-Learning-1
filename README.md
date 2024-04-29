@@ -1,19 +1,21 @@
 # Laporan Proyek Machine Learning - Mufidatul Ngazizah
 ## Domain Proyek
-Domain proyek yang digunakan adalah dalam bidang kesehatan, menurut WHO (World Health Organization) penyakit jantung merupakan penyebab kematian beberapa negara termasuk Indonesia, Inggris Raya, Autralia, Kanada, Amerika dan beberapa negara lain [1]. Penyakit jantung menyebabakn kematian karena tekanan darah, stres dan terlalu banyak bekerja, gula darah, dan banyak alasan lain. Dengan berkembangnya teknologi, banyak hal yan dapat dilakukan untuk meningkatkan kemudahan masyarakat untuk mendeteksi penyakit dengan bantaun Machine Learning yang menggunakan informasi yang relevan untuk prediksi penyalit jantung. Setiap catatan dalam dataset ini berhubungan dengan masing-masing pasien, dan hasil diagnostik juga disediakan. Dataset ini dapat bermanfaat untuk penelitian dalam kesehatan jantung, pemodelan prediktif kondisi jantung, serta pengembangan alat diagnostik dan intervensi yang bertujuan untuk meningkatkan penanganan penyakit jantung.
+Penyakit jantung menjadi momok menakutkan bagi banyak orang di seluruh dunia,  menurut WHO (World Health Organization) penyakit jantung merupakan penyebab kematian beberapa negara termasuk Indonesia, Inggris Raya, Autralia, Kanada, Amerika dan beberapa negara lain [1]. Penyakit ini menduduki posisi terdepan sebagai penyebab kematian, merenggut jutaan nyawa setiap tahunnya. Maka dari itu akurasi prediksi dalam mendeteksi penyakit jantung sangatlah krusial untuk diagnosis dan pengelolaan penyakit yang efektif. Namun, sayangnya, masih banyak tantangan yang dihadapi dalam mencapai hal ini.
+
+Memahami kompleksitas penyakit jantung dan hubungannya dengan berbagai faktor risiko merupakan kunci utama dalam meningkatkan akurasi prediksi. Berbagai faktor, seperti usia, jenis kelamin, tekanan darah, denyut jantung, tekanan darah sistolik, tekanan darah diastolik, CK-MB, dan troponin, memainkan peran penting dalam menentukan risiko seseorang terkena penyakit jantung. Proyek ini hadir untuk menjawab tantangan tersebut. Dengan memanfaatkan kemajuan teknologi machine learning dan analisis data, proyek ini bertujuan untuk mengembangkan model prediksi penyakit jantung yang canggih dan akurat, menggunakan faktor medis yang tersedia. Diharapkan, proyek ini mengidentifikasi pasien dengan risiko tinggi terkena penyakit jantung sehingga memungkinkan intervensi dini dan pencegahan yang efektif. Selain itu, dengan model ini diharapkan dokter dapat mempercepat diagnosis penyakit jantung sehingga mempercepat pengobatan. Alat ini juga diharapkan dapat membantu dokter dalam meningkatkan akurasi diagnosis sehingga mengurangi risiko misdiagnosis dan komplikasi.
 
 # Bussines Understanding
-Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit jantung. Mereka memiliki data rekam medis terkait pasien yang berresiko dan terdiagnosis memiliki penyakit jantung. Beberapa parameter yang akan digunakan untuk memaksimalkan pembuatan alat pendeteksi penyakit jantung.
+Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit jantung. Mereka memiliki data rekam medis terkait pasien yang berresiko dan terdiagnosis memiliki penyakit jantung yang menjadi parameter untuk memaksimalkan pembuatan alat pendeteksi penyakit jantung. Penelitian ini memiliki potensi dampak yang signifikan terhadap kepentingan bisnis dan ekonomi rumah sakit, yaitu dapat meningkatkan efisiensi diagnosis dan pengobatan penyakit jantung, hal ini dapat menghemat waktu dan biaya bagi rumah sakit. Selain itu, diagnosis dan pengobatan yang lebih akurat dapat meningkatkan kepuasan pasien dan reputasi rumah sakit.
 
 ## Problem Statemen
-1. Dari berbeagai parameter yang ada. Variabel manakah yang sangat mempengaruhi seseorang mengalami penyakit jantung?
+1. Bagaimana mengembangkan model prediksi penyakit jantung yang akurat dan dapat diandalkan untuk membantu dokter dalam mendiagnosis penyakit jantung secara dini?
    
 2. Dari 3 Model Machine Learning yaitu Logistic Regression, Random Forest, XGBClassifier manakah yang memiliki akurasi paling tinggi
    
 ## Goal
 1. Mengetahui variabel karakteristik apa yang paling berpengaruh terhadap diagnosis penyakit jantung.
    
-2. Membuat model machine learning terbaik untuk memprediksi penyakit jantung.
+2. Menentukan model machine learning yang menghasilkan akurasi prediksi tertinggi dengan nilai akurasi lebih dari 95%
 
 ## Solution Statemen
 Pada kasus kali ini saya menggunakan 3 model machine learning yaitu:
