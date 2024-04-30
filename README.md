@@ -10,14 +10,14 @@ Pada kasus ini sebuah rumah sakit ingin mengembangkan alat pendeteksi penyakit j
 ## Problem Statemen
 1. Bagaimana mengembangkan model prediksi penyakit jantung yang akurat dan dapat diandalkan untuk membantu dokter dalam mendiagnosis penyakit jantung secara dini?
    
-2. Dari tiga Model Machine Learning, yaitu Logistic Regression, Random Forest, XGBClassifier manakah yang memiliki akurasi paling tinggi
+2.  Model machine learning seperi apa yang dapat memprediksi penyakit jantung dengan akurasi yang paling tinggi?
    
 ## Goal
 1. Mengetahui variabel karakteristik apa yang paling berpengaruh terhadap diagnosis penyakit jantung.
    
 2. Menentukan model machine learning yang menghasilkan akurasi prediksi tertinggi dengan nilai akurasi lebih dari 95%
 
-## Solution Statemen
+## Solution Statement
 Pada kasus ini diterapkan 3 model machine learning, yaitu:
 
 1. Logistic Regression
@@ -93,7 +93,7 @@ Dari 9 feature yang memiliki korelasi cukup tinggi daripada yang lain hanya 3 fe
 Terdapat korelasi positif yang lemah antara usia dan gula darah. Ini berarti bahwa dengan bertambahnya usia, gula darah juga cenderung meningkat. Namun, korelasinya lemah, sehingga ada banyak variabilitas dalam data.
 
 ## Korelasi CK-MB dengan Troponin
-![Gambar 7. Korelasi CK-MB dengan Troponin](https://github.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/blob/main/img/Gambar%207.%20Korelasi%20CK-MB%20denagn%20Troponin.PNG)
+![Gambar 7. Korelasi CK-MB dengan Troponin](https://raw.githubusercontent.com/mufidatuln/Laporan-Proyek-Machine-Learning-1/main/img/Gambar%207.%20Korelasi%20CK-MB%20denagn%20Troponin.PNG)
 
 Terdapat korelasi positif yang lemah antara kadar CK-MB dan kadar troponin. Ini berarti bahwa dengan meningkatnya kadar CK-MB, kadar troponin juga cenderung meningkat, tetapi korelasinya lemah.
 
@@ -113,36 +113,85 @@ Pembagian ini berlaku baik untuk masalah regresi maupun klasifikasi. Karena data
 ## Melakukan Standarisasi Data
 Standardisasi adalah langkah transformasi yang umum digunakan dalam persiapan pemodelan. Ketika menangani fitur numerik, pendekatan one-hot-encoding tidak diterapkan seperti pada fitur kategorikal. Sebagai gantinya, kita menggunakan StandardScaler dari library Scikit-learn. Proses StandarScaler melibatkan pengurangan mean (nilai rata-rata) dari setiap fitur, diikuti dengan pembagian dengan standar deviasi untuk menggeser distribusi. Hasilnya adalah distribusi dengan standar deviasi 1 dan mean 0. Ini mengakibatkan sekitar 68% dari nilai berada di kisaran -1 hingga 1. Agar tidak terjadi kebocoran informasi saat menggunakan data uji, standarisasi dilakukan hanya pada data pelatihan. Kemudian, saat tahap evaluasi, standarisasi diterapkan pada data uji. Untuk lebih memperjelas konsep ini, mari kita terapkan StandardScaler pada dataset yang tersedia.
 
-# Modeling
 
 ## Pemilihan Fitur
-Sebelum memasuki tahap modeling, setiap fitur pada dataset akan di perikasa untuk melihat fitur mana yang paling relevan atau penting untuk meningkatkan kinerja model. Pada proyek kali ini dataset memiliki 9 fitur yang akan digunakan dalam proses pemodelan.
+Sebelum memasuki tahap modeling, setiap fitur pada dataset akan di perikasa untuk melihat fitur mana yang paling relevan atau penting untuk meningkatkan kinerja model. Pada proyek kali ini dataset memiliki 9 fitur yang akan digunakan sebagai parameter dalam proses pembuatan pemodelan.
 
 ## Modeling
 Pada proyek ini digunakan 3 algoritma machine learning yaitu :
+
+1. Logistic Regression
+*Logistic Regression* adalah salah satu algoritma yang digunakan untuk pemodelan regresi dalam konteks klasifikasi. Tujuannya adalah untuk memprediksi probabilitas bahwa suatu instance/data poin akan termasuk dalam salah satu dari dua kelas yang mungkin. Meskipun disebut "regresi", Logistic Regression sebenarnya digunakan untuk masalah klasifikasi. Keuntungan utama dari *Logistic Regression* adalah kemudahan interpretasi hasilnya dan efisiensi komputasinya. Namun, Logistic Regression juga memiliki beberapa kelemahan, seperti ketidakmampuan menangani hubungan non-linear antara fitur dan target, serta rentan terhadap overfitting jika terdapat fitur yang terlalu banyak atau korelasi tinggi antara fitur-fitur tersebut.
+
+* Kelebihan *Logistic Regression*:
+  
+- *Interpretabilitas* : Hasil dari Logistic Regression mudah diinterpretasikan. Koefisien dari setiap fitur dapat memberikan informasi tentang hubungan antara fitur-fitur tersebut dan probabilitas kelas target.
+  
+- Efisien: Logistic Regression membutuhkan waktu pelatihan yang relatif singkat dibandingkan dengan beberapa algoritma yang lebih kompleks. Ini membuatnya cocok untuk digunakan pada dataset besar atau ketika komputasi harus dilakukan dengan sumber daya terbatas.
+
+* Kekurangan *Logistic Regression*:
+  
+- *Linearitas* : *Logistic Regression* bekerja dengan baik ketika hubungan antara fitur-fitur dan label target dapat dijelaskan secara linear. Jika hubungan tersebut tidak linear, *Logistic Regression* mungkin tidak memberikan performa yang baik.
+
+Pada model ini terdapat beberapa parameter yang digunakan dalam model *logistic regression* adalah `max_iter`. Parameter ini mengatur jumlah iterasi yang akan dieksekusi oleh algoritma optimasi ketika melatih model. Dalam contoh tersebut, nilai max_iter=1000 mengindikasikan bahwa algoritma akan berhenti setelah 1000 iterasi jika konvergensi belum tercapai.
+
+2. Random Forest
+   
+*Random Forest* adalah algoritma yang digunakan untuk tugas klasifikasi dan regresi dalam machine learning. Ini termasuk dalam kategori algoritma ensemble, yang berarti ia menggabungkan prediksi dari beberapa model (disebut sebagai *decision tree* dalam konteks *Random Forest*) untuk menghasilkan prediksi yang lebih akurat dan stabil. Keuntungan utama dari *Random Forest* adalah kemampuannya untuk mengatasi overfitting dan menangani dataset yang memiliki banyak fitur dengan baik. Ini juga cenderung memberikan kinerja yang baik secara default tanpa perlu penyetelan parameter yang rumit.
+
+* Kelebihan *Random Forest*:
+  
+- Kinerja yang Tinggi: Random Forest sering menghasilkan kinerja yang sangat baik dalam berbagai macam masalah, termasuk yang kompleks. 
+  
+- Tahan terhadap *Overfitting* : Dengan menggunakan teknik seperti pengambilan sampel acak dan pemilihan fitur acak, Random Forest cenderung lebih tahan terhadap *overfitting* dibandingkan dengan *decision tree* tunggal.
+
+* Kekurangan *Random Forest* :
+  
+- Kompleksitas: *Random Forest* cenderung lebih kompleks daripada beberapa model lainnya, seperti *Logistic Regression* atau *Naive Bayes*.
+
+Parameter yang digunakan dalam model ini adalah 'n_estimators', parameter ini mengontrol jumlah *decision tree* yang akan dibangun.
+
+3. *XGBClassifier*
+  
+*XGBClassifier* adalah singkatan dari *Extreme Gradient Boosting Classifier*, yang merupakan implementasi dari algoritma *gradient boosting* yang sangat efisien dan efektif. *XGBoost* merupakan salah satu algoritma yang sangat populer dalam *machine learning*, terutama dalam kompetisi data dan proyek-proyek industri. *Gradient boosting* adalah proses iteratif di mana model ditambahkan satu per satu ke dalam rangkaian model yang ada. Setiap model ditambahkan dengan mengurangi gradien dari fungsi kerugian (loss function) terhadap prediksi sebelumnya. Dengan cara ini, setiap model berfokus pada bagian data yang tidak diprediksi dengan baik oleh model sebelumnya.
+
+* Kelebihan *XGBClassifier*
+  
+- Kinerja yang Tinggi: *XGBoost* dikenal memiliki kinerja yang sangat baik dalam berbagai macam masalah klasifikasi dan regresi. Ini karena kemampuannya untuk memodelkan hubungan yang kompleks antara fitur-fitur dan label target.
+  
+- Regularisasi yang Kuat: *XGBoost* memiliki berbagai opsi regularisasi yang dapat membantu mencegah *overfitting*, termasuk regulasi L1 (Lasso) dan L2 (Ridge).
+
+* Kekurangan *XGBClassifier*
+  
+- Komputasi yang Intensif: XGBoost bisa memerlukan sumber daya komputasi yang signifikan, terutama jika digunakan dengan parameter yang kompleks atau pada dataset yang besar.
+  
+- Sensitif terhadap Penyetelan Parameter: XGBoost memiliki banyak parameter yang dapat disesuaikan. Penyetelan parameter yang tepat mungkin memerlukan pengalaman dan pengetahuan yang mendalam tentang algoritma.
+
+Parameter yang digunakan dalam pembuatan model XGBClassifier adalah sebagai berikut:
+
+`use_label_encoder`: Parameter ini adalah boolean yang menentukan apakah label target harus di-encode atau tidak.
+
+`eval_metric` : Parameter ini menentukan metrik evaluasi yang akan digunakan selama proses pelatihan.
+
+# Evaluasi
+
+Model dievaluasi menggunakan set uji yang terpisah. Matrik evaluasi yang digunakan pada proyek adalah sebagai berikut :
 
 |  Model |  Accuarcy | Precision | Recall  |F1-Score   | AUC-ROC  |
 |---|---|---|---|---|---|
 |  Logistic Regersion | 0.799242  |  0.819767	 | 0.865031  | 0.841791  | 0.884863  |
 Tabel 1. Logistic Regersion
 
-
-* Random Forest
-  
 |  Model |  Accuarcy | Precision | Recall  |F1-Score   | AUC-ROC  |
 |---|---|---|---|---|---|
 |  Random Forest | 0.981061  |  0.981707	 | 0.98773  | 0.984709  | 0.989552  |
 Tabel 2. Random Forest
-
-* XGBClassifier
 
 |  Model |  Accuarcy | Precision | Recall  |F1-Score   | AUC-ROC  |
 |---|---|---|---|---|---|
 |  XGBClassifier | 0.981061  |  0.981707 | 0.98773  | 0.984709  | 0.992529  |
 Tabel 3. XGBClassifier
 
-# Evaluasi
-Model dievaluasi menggunakan set uji yang terpisah. Matrik evaluasi yang digunakan pada proyek adalah sebagai berikut :
 
 ## Accuracy
 Accuracy mengukur seberapa sering model melakukan prediksi yang benar secara keseluruhan. Dapat dilihat pada Tabel 1, nilai metrix accuracy sebesar 0.799 pada model *Logistic Regersion* hal ini menunjukkan model cukup baik dalam mengklasifikasikan data ke dalam kategori yang benar. Namun hasil tersebut belum dapat dibilang tinggi karena akurasi dapat menjadi bias jika distribusi kelas tidak seimbang dalam dataset. Pada Tabel 2 dan Tabel 3 nilai metrix akurasi sudah mencapai 0.98 yaitu pada model *Random Forest* dan *XGBClassifier*. Nilai akurasi dihitung dari rumus matematika berikut :
